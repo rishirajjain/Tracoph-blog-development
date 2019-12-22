@@ -1,0 +1,86 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/tr-app/tr-app.js",
+  "fragments":[
+  "src/tr-app/tr-about.js",
+  "src/tr-app/tr-tracoph.js",
+  "src/tr-app/tr-quotes.js",
+  "src/tr-app/tr-v404.js"
+
+  ],
+    "sources": [
+    "images/**/*",
+    "data/*",
+    "package.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "blog.html",
+    "src/tr-app/tr-blog.js",
+    "node_modules/@webcomponents/webcomponentsjs/*.js",
+    "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
+  ],
+  "builds": [
+    {
+      "name": "esm-bundled",
+      "browserCapabilities": [
+        "es2015",
+        "modules"
+      ],
+      "js": {
+        "minify": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true,
+      "addServiceWorker": true
+    },
+    {
+      "name": "es6-bundled",
+      "browserCapabilities": [
+        "es2015"
+      ],
+      "js": {
+        "minify": true,
+        "transformModulesToAmd": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true,
+      "addServiceWorker": true
+    },
+    {
+      "name": "es5-bundled",
+      "js": {
+        "minify": true,
+        "compile": true,
+        "transformModulesToAmd": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true,
+      "addServiceWorker": true
+    }
+  ],
+  "moduleResolution": "node",
+  "npm": true,
+  "componentDir": "node_modules/",
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  }
+}
